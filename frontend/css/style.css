@@ -1,0 +1,2048 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    color: #222;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    height: 85px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text h2 {
+    color: #f57c00;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo-text p {
+    color: #666;
+    font-size: 13px;
+    margin-top: -5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #f57c00;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: #f57c00;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f3f4f6;
+    padding: 10px 15px;
+    border-radius: 30px;
+}
+
+.search-box i {
+    color: #777;
+}
+
+.search-box input {
+    width: 160px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.login-btn {
+    border: none;
+    background: #f57c00;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #dd6d00;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO
+========================================================= */
+
+.hero {
+    min-height: 90vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 90px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    color: white;
+    animation: fadeIn 1.1s ease;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: #f57c00;
+    color: white;
+
+    padding: 9px 18px;
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.hero h4 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.hero h1 {
+    font-size: 80px;
+    line-height: 1.1;
+    margin: 12px 0 25px;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: #f57c00;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #eee;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-buttons button,
+.hero-buttons .map-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 16px 30px;
+
+    border-radius: 9px;
+    border: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.35s;
+}
+
+.explore-btn {
+    background: #f57c00;
+    color: white;
+}
+
+.explore-btn:hover {
+    background: #dd6d00;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(245, 124, 0, 0.35);
+}
+
+.map-btn {
+    background: white;
+    color: #333;
+}
+
+.map-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #253858;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 17px;
+}
+
+.section-tag {
+    display: inline-block;
+    color: #f57c00;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   QUICK ACCESS
+========================================================= */
+
+.quick-access {
+    padding: 90px 80px;
+    background: #f8f9fa;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.quick-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 20px;
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+
+    transition: 0.4s;
+    border: 1px solid transparent;
+}
+
+.quick-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(245, 124, 0, 0.2);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.quick-card > i {
+    font-size: 42px;
+    color: #f57c00;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.quick-card:hover > i {
+    transform: scale(1.1);
+}
+
+.quick-card h3 {
+    font-size: 23px;
+    color: #253858;
+    margin-bottom: 10px;
+}
+
+.quick-card p {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.quick-card a {
+    color: #f57c00;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.quick-card a i {
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.quick-card a:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.stats {
+    padding: 100px 80px;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(5, 20, 45, 0.82),
+            rgba(5, 20, 45, 0.82)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.stats-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.stats-heading h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.stats-heading p {
+    color: #ddd;
+    font-size: 17px;
+}
+
+.stats-heading .section-tag {
+    color: #f57c00;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.stat-box {
+    padding: 38px 20px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.4s;
+}
+
+.stat-box:hover {
+    transform: translateY(-10px);
+    background: rgba(245, 124, 0, 0.25);
+}
+
+.stat-box i {
+    color: #f57c00;
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.stat-box h1 {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    font-size: 17px;
+    color: #eee;
+}
+
+
+/* =========================================================
+   FEATURED PLACES
+========================================================= */
+
+.featured {
+    padding: 100px 80px;
+    background: #f8f9fa;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.place-card {
+    height: 330px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+
+    transition: 0.4s;
+}
+
+.place-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.17);
+}
+
+.place-image {
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transition: 0.6s;
+    position: relative;
+}
+
+.hostel-image {
+    background-position: left center;
+}
+
+.food-image {
+    background-position: right center;
+}
+
+.auditorium-image {
+    background-position: top center;
+}
+
+.sports-image {
+    background-position: bottom center;
+}
+
+.medical-image {
+    background-position: center;
+}
+
+.place-card:hover .place-image {
+    transform: scale(1.06);
+}
+
+.place-overlay {
+    position: absolute;
+    inset: 0;
+
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: white;
+
+    background: linear-gradient(
+        transparent 20%,
+        rgba(0, 0, 0, 0.82)
+    );
+}
+
+.place-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f57c00;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+}
+
+.place-icon i {
+    font-size: 21px;
+}
+
+.place-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.place-overlay p {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.place-overlay a {
+    color: #ff9b42;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.place-overlay a i {
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.place-overlay a:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ANNOUNCEMENTS
+========================================================= */
+
+.announcements {
+    padding: 100px 80px;
+    background: white;
+}
+
+.announcement-container {
+    max-width: 950px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.announcement-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 18px;
+
+    padding: 25px 30px;
+
+    transition: 0.35s;
+}
+
+.announcement-card:hover {
+    transform: translateX(8px);
+
+    border-color: rgba(245, 124, 0, 0.35);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.announcement-icon {
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(245, 124, 0, 0.12);
+
+    color: #f57c00;
+
+    font-size: 24px;
+}
+
+.announcement-content {
+    flex: 1;
+}
+
+.announcement-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 7px;
+}
+
+.announcement-category {
+    display: inline-block;
+
+    background: #fff0e3;
+    color: #f57c00;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.announcement-date {
+    color: #888;
+    font-size: 13px;
+}
+
+.announcement-content h3 {
+    color: #253858;
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.announcement-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.announcement-content a {
+    color: #f57c00;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.announcement-content a i {
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.announcement-content a:hover i {
+    transform: translateX(5px);
+}
+
+.announcement-button {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.announcement-button button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 13px 25px;
+
+    border: 1px solid #f57c00;
+
+    background: white;
+
+    color: #f57c00;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.announcement-button button:hover {
+    background: #f57c00;
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #111827;
+    color: white;
+    padding-top: 55px;
+}
+
+.footer-content {
+    text-align: center;
+    padding: 0 20px 45px;
+}
+
+.footer-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.footer-content h2 span {
+    color: #f57c00;
+}
+
+.footer-content p {
+    color: #aaa;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.footer-social a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background: #f57c00;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    padding: 20px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   GENERAL RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .navbar {
+        padding: 0 35px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        padding: 70px 50px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .quick-access,
+    .stats,
+    .featured,
+    .announcements {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .quick-grid,
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: 75px;
+        padding: 0 20px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-text h2 {
+        font-size: 23px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .login-btn {
+        padding: 9px 14px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 60px 25px;
+    }
+
+    .hero h4 {
+        font-size: 21px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons button,
+    .hero-buttons .map-btn {
+        width: 100%;
+    }
+
+    .quick-access,
+    .stats,
+    .featured,
+    .announcements {
+        padding: 70px 20px;
+    }
+
+    .section-title h2,
+    .stats-heading h2 {
+        font-size: 32px;
+    }
+
+    .quick-grid,
+    .featured-grid,
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .announcement-card {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .announcement-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+}
+
+
+/* =========================================================
+   CAMPUS PAGE
+========================================================= */
+
+.page-hero {
+    min-height: 55vh;
+
+    background:
+        linear-gradient(
+            rgba(5, 20, 45, 0.78),
+            rgba(5, 20, 45, 0.78)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 30px;
+
+    color: white;
+}
+
+.page-hero-content {
+    max-width: 800px;
+    animation: fadeIn 1s ease;
+}
+
+.page-hero h1 {
+    font-size: 58px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.page-hero h1 span {
+    color: #f57c00;
+}
+
+.page-hero p {
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CAMPUS OVERVIEW
+========================================================= */
+
+.campus-overview {
+    padding: 100px 80px;
+    background: #f8f9fa;
+}
+
+.campus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+.campus-card {
+    background: white;
+
+    padding: 35px 30px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.07);
+
+    transition: 0.35s;
+
+    border: 1px solid transparent;
+}
+
+.campus-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(245, 124, 0, 0.25);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.campus-card-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0e3;
+
+    color: #f57c00;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.campus-card h3 {
+    color: #253858;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.campus-card p {
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.campus-btn {
+    border: none;
+    background: transparent;
+
+    color: #f57c00;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.campus-btn i {
+    margin-left: 6px;
+    transition: 0.3s;
+}
+
+.campus-btn:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   CAMPUS MAP
+========================================================= */
+
+.campus-map-section {
+    padding: 100px 80px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    background: white;
+}
+
+.map-content {
+    max-width: 550px;
+}
+
+.map-content h2 {
+    font-size: 40px;
+    color: #253858;
+    margin: 12px 0 18px;
+}
+
+.map-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.map-button {
+    border: none;
+
+    background: #f57c00;
+
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.map-button:hover {
+    background: #dd6d00;
+    transform: translateY(-3px);
+}
+
+.map-placeholder {
+    min-height: 350px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            rgba(15, 35, 65, 0.9),
+            rgba(15, 35, 65, 0.9)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.map-placeholder i {
+    font-size: 65px;
+    color: #f57c00;
+    margin-bottom: 20px;
+}
+
+.map-placeholder h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.map-placeholder p {
+    color: #ccc;
+}
+
+
+/* =========================================================
+   CAMPUS RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .campus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .campus-map-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .page-hero {
+        min-height: 50vh;
+        padding: 60px 20px;
+    }
+
+    .page-hero h1 {
+        font-size: 40px;
+    }
+
+    .page-hero p {
+        font-size: 15px;
+    }
+
+    .campus-overview {
+        padding: 70px 20px;
+    }
+
+    .campus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campus-map-section {
+        padding: 70px 20px;
+    }
+
+    .map-content h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================================
+   HOSTELS / MESS / DEPARTMENTS HERO
+========================================================= */
+
+.hostel-hero,
+.mess-hero,
+.department-hero {
+
+    min-height: 55vh;
+
+    background:
+        linear-gradient(
+            rgba(5, 20, 45, 0.78),
+            rgba(5, 20, 45, 0.78)
+        ),
+        url("../images/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 30px;
+
+    color: white;
+}
+
+.hostel-hero-content,
+.mess-hero-content,
+.department-hero-content {
+
+    max-width: 850px;
+
+    animation: fadeIn 1s ease;
+}
+
+.hostel-hero h1,
+.mess-hero h1,
+.department-hero h1 {
+
+    font-size: 58px;
+
+    line-height: 1.2;
+
+    margin: 20px 0;
+}
+
+.hostel-hero h1 span,
+.mess-hero h1 span,
+.department-hero h1 span {
+
+    color: #f57c00;
+}
+
+.hostel-hero p,
+.mess-hero p,
+.department-hero p {
+
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   HOSTEL / MESS / DEPARTMENT SECTIONS
+========================================================= */
+
+.hostel-overview,
+.mess-overview,
+.department-section {
+
+    padding: 100px 80px;
+
+    background: #f8f9fa;
+}
+
+
+/* =========================================================
+   HOSTEL STATS / MESS INFO
+========================================================= */
+
+.hostel-stats,
+.mess-info-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.hostel-stat,
+.mess-info-card {
+
+    background: white;
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.07);
+
+    transition: 0.35s;
+
+    border: 1px solid transparent;
+}
+
+.hostel-stat:hover,
+.mess-info-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(245, 124, 0, 0.25);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hostel-stat i,
+.mess-info-card i {
+
+    font-size: 38px;
+
+    color: #f57c00;
+
+    margin-bottom: 15px;
+}
+
+.hostel-stat h2,
+.mess-info-card h3 {
+
+    color: #253858;
+
+    margin-bottom: 8px;
+}
+
+.hostel-stat h2 {
+    font-size: 38px;
+}
+
+.hostel-stat p,
+.mess-info-card p {
+
+    color: #777;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACCOMMODATION / FACILITIES / FAQ
+========================================================= */
+
+.accommodation,
+.hostel-facilities,
+.hostel-faq,
+.mess-faq,
+.food-options,
+.meal-schedule {
+
+    padding: 100px 80px;
+
+    background: white;
+}
+
+.accommodation-grid,
+.facility-grid,
+.food-options-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+.residence-card,
+.facility-card,
+.food-option-card {
+
+    background: #f8f9fa;
+
+    padding: 35px 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid #eee;
+
+    transition: 0.35s;
+}
+
+.residence-card:hover,
+.facility-card:hover,
+.food-option-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(245, 124, 0, 0.25);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.residence-icon,
+.food-option-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0e3;
+
+    color: #f57c00;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.residence-card h3,
+.facility-card h3,
+.food-option-card h3 {
+
+    color: #253858;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.residence-card p,
+.facility-card p,
+.food-option-card p {
+
+    color: #777;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.residence-info {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.residence-info span {
+
+    background: white;
+
+    border: 1px solid #eee;
+
+    border-radius: 20px;
+
+    padding: 7px 12px;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+.residence-info i {
+
+    color: #f57c00;
+
+    margin-right: 5px;
+}
+
+.facility-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.facility-card {
+    text-align: center;
+}
+
+.facility-card > i {
+
+    color: #f57c00;
+
+    font-size: 35px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   HOSTEL MESS
+========================================================= */
+
+.hostel-mess {
+
+    padding: 80px;
+
+    background: #253858;
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns: 1fr 300px;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.mess-content h2 {
+
+    font-size: 40px;
+
+    margin: 12px 0 15px;
+}
+
+.mess-content p {
+
+    color: #ddd;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.mess-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #f57c00;
+
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.mess-button:hover {
+
+    background: #dd6d00;
+
+    transform: translateY(-3px);
+}
+
+.mess-icon-box {
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.06);
+}
+
+.mess-icon-box i {
+
+    color: #f57c00;
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+.mess-icon-box h3 {
+    margin-bottom: 8px;
+}
+
+.mess-icon-box p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-container {
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.faq-item {
+
+    background: white;
+
+    border: 1px solid #eee;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    overflow: hidden;
+}
+
+.faq-question {
+
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    padding: 20px 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    text-align: left;
+
+    color: #253858;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.faq-question i {
+
+    color: #f57c00;
+
+    transition: 0.3s;
+}
+
+.faq-answer {
+
+    display: none;
+
+    padding: 0 22px 20px;
+
+    color: #777;
+
+    line-height: 1.7;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+.faq-item.open .faq-question i {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   MESS PAGE
+========================================================= */
+
+.mess-info-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.food-options-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.meal-table {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.07);
+}
+
+.meal-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 20px;
+
+    padding: 20px 25px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.meal-row:last-child {
+    border-bottom: none;
+}
+
+.meal-row strong {
+    color: #253858;
+}
+
+.meal-row span {
+    color: #666;
+}
+
+
+/* =========================================================
+   DEPARTMENTS PAGE
+========================================================= */
+
+.department-search-section {
+
+    padding: 55px 30px 20px;
+
+    background: #f8f9fa;
+}
+
+.department-search-box {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+
+    padding: 14px 20px;
+
+    border-radius: 40px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.07);
+}
+
+.department-search-box i {
+    color: #f57c00;
+}
+
+.department-search-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: transparent;
+}
+
+.department-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.alternate-section {
+    background: white;
+}
+
+.department-card {
+
+    background: #f8f9fa;
+
+    padding: 30px 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid #eee;
+
+    transition: 0.35s;
+}
+
+.department-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(245,124,0,0.3);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.08);
+}
+
+.department-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0e3;
+
+    color: #f57c00;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+
+    margin-bottom: 18px;
+}
+
+.department-card h3 {
+
+    color: #253858;
+
+    font-size: 20px;
+
+    margin-bottom: 9px;
+}
+
+.department-card p {
+
+    color: #777;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   HOSTEL / MESS / DEPARTMENT RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .hostel-stats,
+    .mess-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-options-grid,
+    .department-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .accommodation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hostel-mess {
+        grid-template-columns: 1fr;
+        padding: 70px 50px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .hostel-hero,
+    .mess-hero,
+    .department-hero {
+
+        min-height: 50vh;
+
+        padding: 60px 20px;
+    }
+
+    .hostel-hero h1,
+    .mess-hero h1,
+    .department-hero h1 {
+
+        font-size: 40px;
+    }
+
+    .hostel-hero p,
+    .mess-hero p,
+    .department-hero p {
+
+        font-size: 15px;
+    }
+
+    .hostel-overview,
+    .mess-overview,
+    .department-section,
+    .accommodation,
+    .hostel-facilities,
+    .hostel-faq,
+    .mess-faq,
+    .food-options,
+    .meal-schedule {
+
+        padding: 70px 20px;
+    }
+
+    .hostel-stats,
+    .mess-info-grid,
+    .facility-grid,
+    .food-options-grid,
+    .department-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hostel-mess {
+        padding: 60px 20px;
+    }
+
+    .mess-content h2 {
+        font-size: 30px;
+    }
+
+    .meal-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}
