@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       LOGIN - CONNECT FRONTEND TO SPRING BOOT
+       NAVBAR LOGIN BUTTON
     ===================================================== */
 
     const loginButtons =
@@ -408,72 +408,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loginButtons.forEach(function (button) {
 
-        button.addEventListener("click", async function (event) {
+        button.addEventListener("click", function (event) {
 
             event.preventDefault();
 
-            const email =
-                prompt("Enter your student email:");
-
-            if (!email) {
-                return;
-            }
-
-            const password =
-                prompt("Enter your password:");
-
-            if (!password) {
-                return;
-            }
-
-            try {
-
-                const response = await fetch(
-                    "http://localhost:8080/api/login",
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-
-                        body: JSON.stringify({
-                            email: email,
-                            password: password
-                        })
-                    }
-                );
-
-
-                const message =
-                    await response.text();
-
-
-                if (response.ok) {
-
-                    alert("✅ " + message);
-
-                }
-                else {
-
-                    alert("❌ " + message);
-
-                }
-
-            }
-            catch (error) {
-
-                console.error("Login error:", error);
-
-                alert(
-                    "❌ Cannot connect to CampusConnect backend.\n\n" +
-                    "Make sure Spring Boot is running on localhost:8080."
-                );
-
-            }
+            window.location.href = "login.html";
 
         });
 
     });
+
 
 });
