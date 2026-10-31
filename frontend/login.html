@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         * {
@@ -199,210 +200,202 @@
 
 <body>
 
-<div class="login-container">
+    <div class="login-container">
 
-    <div class="login-card">
+        <div class="login-card">
 
-        <div class="logo-section">
+            <div class="logo-section">
 
-            <img src="images/reva-logo.png"
-                 alt="REVA University Logo">
+                <img src="images/reva-logo.png" alt="REVA University Logo">
 
-            <h1>CampusConnect</h1>
+                <h1>CampusConnect</h1>
 
-            <p>Student Login</p>
+                <p>Student Login</p>
 
-        </div>
+            </div>
 
 
-        <form id="loginForm">
+            <form id="loginForm">
 
-            <div class="form-group">
+                <div class="form-group">
 
-                <label for="email">Email Address</label>
+                    <label for="email">Email Address</label>
 
-                <div class="input-box">
+                    <div class="input-box">
 
-                    <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-envelope"></i>
 
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
+                        <input type="email" id="email" placeholder="Enter your email" required>
+
+                    </div>
 
                 </div>
 
-            </div>
 
+                <div class="form-group">
 
-            <div class="form-group">
+                    <label for="password">Password</label>
 
-                <label for="password">Password</label>
+                    <div class="input-box">
 
-                <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
 
-                    <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password" required>
 
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                        required
-                    >
+                    </div>
 
                 </div>
 
+
+                <button type="submit" class="login-btn" id="loginBtn">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+
+                </button>
+
+
+                <div id="message" class="message">
+                </div>
+
+            </form>
+
+
+            <div class="register-text">
+
+                New student?
+
+                <a href="register.html">
+                    Create an account
+                </a>
+
             </div>
 
 
-            <button type="submit"
-                    class="login-btn"
-                    id="loginBtn">
+            <div class="back-home">
 
-                <i class="fa-solid fa-right-to-bracket"></i>
-                Login
+                <a href="index.html">
 
-            </button>
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
 
+                </a>
 
-            <div id="message"
-                 class="message">
             </div>
-
-        </form>
-
-
-        <div class="register-text">
-
-            New student?
-
-            <a href="register.html">
-                Create an account
-            </a>
-
-        </div>
-
-
-        <div class="back-home">
-
-            <a href="index.html">
-
-                <i class="fa-solid fa-arrow-left"></i>
-                Back to Home
-
-            </a>
 
         </div>
 
     </div>
 
-</div>
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginBtn =
+            document.getElementById("loginBtn");
+
+        const message =
+            document.getElementById("message");
 
 
-<script>
+        loginForm.addEventListener("submit", async function (event) {
 
-    const loginForm =
-        document.getElementById("loginForm");
-
-    const loginBtn =
-        document.getElementById("loginBtn");
-
-    const message =
-        document.getElementById("message");
+            event.preventDefault();
 
 
-    loginForm.addEventListener("submit", async function(event) {
+            const email =
+                document.getElementById("email").value.trim();
 
-        event.preventDefault();
-
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const password =
-            document.getElementById("password").value;
+            const password =
+                document.getElementById("password").value;
 
 
-        message.className = "message";
-        message.textContent = "";
+            message.className = "message";
+            message.textContent = "";
 
 
-        loginBtn.disabled = true;
+            loginBtn.disabled = true;
 
-        loginBtn.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
+            loginBtn.innerHTML =
+                '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
 
 
-        try {
+            try {
 
-            const response = await fetch(
-                "http://localhost:8080/api/login",
-                {
-                    method: "POST",
+                const response = await fetch(
+                    "http://localhost:8080/api/login",
+                    {
+                        method: "POST",
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
 
-                    body: JSON.stringify({
-                        email: email,
-                        password: password
-                    })
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+
+                const result =
+                    await response.text();
+
+
+                if (response.ok) {
+
+                    message.className =
+                        "message success";
+
+                    message.textContent =
+                        result;
+
+                    setTimeout(function () {
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 1200);
+
+                } else {
+
+                    message.className =
+                        "message error";
+
+                    message.textContent =
+                        result;
+
+                    loginBtn.disabled = false;
+
+                    loginBtn.innerHTML =
+                        '<i class="fa-solid fa-right-to-bracket"></i> Login';
+
                 }
-            );
 
 
-            const result =
-                await response.text();
-
-
-            if (response.ok) {
-
-                message.className =
-                    "message success";
-
-                message.textContent =
-                    result;
-
-                setTimeout(function() {
-
-                    window.location.href =
-                        "index.html";
-
-                }, 1200);
-
-            } else {
+            } catch (error) {
 
                 message.className =
                     "message error";
 
                 message.textContent =
-                    result;
+                    "Cannot connect to server. Please make sure the backend is running.";
+
+                loginBtn.disabled = false;
+
+                loginBtn.innerHTML =
+                    '<i class="fa-solid fa-right-to-bracket"></i> Login';
 
             }
 
 
-        } catch (error) {
+        });
 
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Cannot connect to server. Please make sure the backend is running.";
-
-        }
-
-
-        loginBtn.disabled = false;
-
-        loginBtn.innerHTML =
-            '<i class="fa-solid fa-right-to-bracket"></i> Login';
-
-    });
-
-</script>
+    </script>
 
 </body>
+
 </html>
