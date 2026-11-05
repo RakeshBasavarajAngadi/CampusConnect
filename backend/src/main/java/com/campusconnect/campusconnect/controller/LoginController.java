@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Locale;
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -22,14 +24,31 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<String> login(@RequestBody(required = false) LoginRequest request) {
 
-        Student student = studentRepository.findByEmail(request.getEmail())
+        if (request == null) {
+            return ResponseEntity.badRequest()
+                    .body("Request body cannot be empty");
+        }
+
+        if (request.getEmail() == null || request.getEmail().trim().isEmpty()) {
+            return ResponseEntity.badRequest()
+                    .body("Email is required");
+        }
+
+        if (request.getPassword() == null || request.getPassword().isBlank()) {
+            return ResponseEntity.badRequest()
+                    .body("Password is required");
+        }
+
+        String normalizedEmail = request.getEmail().trim().toLowerCase(Locale.ROOT);
+
+        Student student = studentRepository.findByEmail(normalizedEmail)
                 .orElse(null);
 
         if (student == null) {
             return ResponseEntity.status(401)
-                    .body("Student not found");
+                    .body("Invalid email or password");
         }
 
         if (!passwordEncoder.matches(
@@ -37,7 +56,7 @@ public class LoginController {
                 student.getPassword())) {
 
             return ResponseEntity.status(401)
-                    .body("Invalid password");
+                    .body("Invalid email or password");
         }
 
         return ResponseEntity.ok("Login successful");
