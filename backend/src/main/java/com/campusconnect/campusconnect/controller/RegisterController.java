@@ -2,6 +2,7 @@ package com.campusconnect.campusconnect.controller;
 
 import com.campusconnect.campusconnect.entity.Student;
 import com.campusconnect.campusconnect.repository.StudentRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -73,7 +74,12 @@ public class RegisterController {
                 passwordEncoder.encode(student.getPassword())
         );
 
-        studentRepository.save(student);
+        try {
+            studentRepository.saveAndFlush(student);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.badRequest()
+                    .body("Email already registered");
+        }
 
         return ResponseEntity.ok("Registration successful");
     }
